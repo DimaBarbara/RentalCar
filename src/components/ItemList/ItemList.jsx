@@ -1,33 +1,35 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCars } from "../../redux/cars/operation";
+import CarPreview from "../CarPreview/CarPreview";
 
 const ItemList = () => {
   const dispatch = useDispatch();
-  const { data, isLoading, error } = useSelector((state) => state.cars);
+  const { list, loading, error, filters, selected } = useSelector(
+    (state) => state.cars
+  );
+  console.log(list);
 
   useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
+    dispatch(fetchCars(filters));
+  }, [filters, dispatch]);
 
-  if (isLoading) {
-    return <p>Загрузка...</p>;
-  }
-
-  if (error) {
-    return <p>Ошибка: {error}</p>;
-  }
-
-  if (!data.length) {
-    return <p>Машины не найдены</p>;
-  }
-
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   return (
-    <ul>
-      {data.map((item, index) => (
-        <li key={index}>{item.model}</li>
-      ))}
-    </ul>
+    <>
+      {list && list.length > 0 ? (
+        <ul>
+          {list?.map((car) => (
+            <li key={car.id}>
+              <CarPreview list={car} selected={selected} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <h1>Нема машинок</h1>
+      )}
+    </>
   );
 };
 
