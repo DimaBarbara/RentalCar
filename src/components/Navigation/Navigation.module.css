@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 120px;
+  background-color: #f2f4f7;
+}
+.divNav {
+  display: flex;
+  gap: 32px;
+  transition: background-color 0.3s ease;
+}
+.nav:hover,
+.nav:focus {
+  color: #0b44cd;
+}

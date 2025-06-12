@@ -1,0 +1,46 @@
+.divPreview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 276px;
+}
+.imgPreview {
+  border-radius: 14px;
+  width: 276px;
+  height: 268px;
+  margin-bottom: 16px;
+}
+.h3Preview {
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-align: start;
+  display: flex;
+  align-items: center;
+}
+.spanPreview {
+  color: #3470ff;
+}
+.spanPreviewP {
+  margin-left: auto;
+  padding-right: 11px;
+}
+.pPreview {
+  text-align: start;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #8d929a;
+  margin-bottom: 32px;
+}
+.buttonPreview {
+  padding: 12px 97px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 12px;
+  background-color: #3470ff;
+  transition: background-color 0.3s ease;
+}
+.buttonPreview:hover,
+.buttonPreview:focus {
+  background-color: #0b44cd;
+}

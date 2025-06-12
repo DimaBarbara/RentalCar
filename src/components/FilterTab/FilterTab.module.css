@@ -1,0 +1,59 @@
+.formFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.filter {
+  margin-bottom: 56px;
+  margin-top: 84px;
+}
+
+.buttonFilter {
+  padding: 12px 51px;
+  line-height: 1.25;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 12px;
+  background-color: #3470ff;
+  transition: background-color 0.3s ease;
+}
+.buttonFilter:hover,
+.buttonFilter:focus {
+  background-color: #0b44cd;
+}
+.fieldsetFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  gap: 0;
+}
+.inputFilter1 {
+  font-weight: 500;
+  font-size: 16px;
+
+  background-color: #f7f7f7;
+  border-color: transparent;
+  border-radius: 12px 0 0 12px;
+  padding: 12px;
+  padding-left: 24px;
+  border-right: 1px solid #8d929a;
+}
+.inputFilter2 {
+  font-weight: 500;
+  font-size: 16px;
+
+  background-color: #f7f7f7;
+  border-color: transparent;
+  border-radius: 0 12px 12px 0;
+  padding: 12px;
+  padding-left: 24px;
+}
+.inputFilter1::placeholder,
+.inputFilter2::placeholder {
+  color: #101828;
+}

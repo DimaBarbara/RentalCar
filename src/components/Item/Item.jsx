@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import s from "./Item.module.css";
 const baseURL = "https://car-rental-api.goit.global";
 
 const Item = () => {
@@ -27,26 +27,31 @@ const Item = () => {
     car.rentalConditions?.find((item) => item.includes("Minimum age")) || "";
   const minAge = minAgeString.match(/Minimum age: (\d+)/)?.[1] ?? "N/A";
   return (
-    <div>
-      <img src={car.img} alt={`${car.brand} ${car.model}`} />
+    <div className={s.divItem}>
+      <img
+        className={s.imgItem}
+        src={car.img}
+        alt={`${car.brand} ${car.model}`}
+      />
 
-      <form>
-        <h2>Book your car now</h2>
-        <p>Stay connected! We are always ready to help you.</p>
+      <form className={s.formItem}>
+        <h2 className={s.h2Item}>Book your car now</h2>
+        <p className={s.pItem}>
+          Stay connected! We are always ready to help you.
+        </p>
 
-        <input type="text" placeholder="Name*" />
-        <input type="email" placeholder="Email*" />
-        <input type="date" placeholder="Booking date" />
-        <textarea placeholder="Comment" />
-
+        <input className={s.inputItem} type="text" placeholder="Name*" />
+        <input className={s.inputItem} type="email" placeholder="Email*" />
+        <input className={s.inputItem} type="date" placeholder="Booking date" />
+        <textarea className={s.textareaItem} placeholder="Comment" />
         <div>
-          <h2>
+          <h2 className={s.h2Item}>
             {car.brand} {car.model}
           </h2>
-          <p>Price: {car.rentalPrice}</p>
-          <p>Location: {car.address}</p>
-          <h2>Details</h2>
-          <p>{car.description}</p>
+          <p className={s.pItem}>Price: {car.rentalPrice}</p>
+          <p className={s.pItem}>Location: {car.address}</p>
+          <h2 className={s.h2Item}>Details</h2>
+          <p className={s.pItem}>{car.description}</p>
         </div>
 
         <div>

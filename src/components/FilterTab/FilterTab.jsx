@@ -5,6 +5,8 @@ import Select from "react-select";
 import { setFilters } from "../../redux/cars/slice";
 import { fetchCars } from "../../redux/cars/operation";
 const baseURL = "https://car-rental-api.goit.global";
+import s from "./FilterTab.module.css";
+import "./castomSelect.css";
 const FilterTab = () => {
   const dispatch = useDispatch();
   const [brands, setBrands] = useState([]);
@@ -51,16 +53,14 @@ const FilterTab = () => {
     dispatch(fetchCars(localFilters));
   };
   return (
-    <section id="filter">
-      <form onSubmit={handleSubmit}>
+    <section className={s.filter} id="filter">
+      <form className={s.formFilter} onSubmit={handleSubmit}>
         <Select
           options={brands.map((brand) => ({
             value: brand,
             label: brand,
           }))}
-          id=""
-          name=""
-          className=""
+          className="customSelect"
           classNamePrefix="custom-select"
           placeholder="Choose a brand"
           onChange={onBrandChange}
@@ -70,18 +70,26 @@ const FilterTab = () => {
             value: price,
             label: price,
           }))}
-          id=""
-          name=""
-          className=""
+          className="customSelect"
           classNamePrefix="custom-select"
           placeholder="Choose a price"
           onChange={onPriceChange}
         />
-        <fieldset>
-          <input placeholder="From" onChange={onMinMileageChange} />
-          <input placeholder="To" onChange={onMaxMileageChange} />
+        <fieldset className={s.fieldsetFilter}>
+          <input
+            className={s.inputFilter1}
+            placeholder="From"
+            onChange={onMinMileageChange}
+          />
+          <input
+            className={s.inputFilter2}
+            placeholder="To"
+            onChange={onMaxMileageChange}
+          />
         </fieldset>
-        <button type="submit">Search</button>
+        <button className={s.buttonFilter} type="submit">
+          Search
+        </button>
       </form>
     </section>
   );

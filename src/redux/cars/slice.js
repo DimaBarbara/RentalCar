@@ -9,7 +9,7 @@ const initialState = {
     rentalPrice: "",
     minMileage: "",
     maxMileage: "",
-    limit: 10,
+    limit: 12,
     page: 1,
   },
   loading: false,
