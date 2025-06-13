@@ -4,9 +4,8 @@ import s from "./Navigation.module.css";
 const Navigation = () => {
   return (
     <header className={s.header}>
-      <svg width="104" height="16">
-        <use xlink="#car"></use>
-      </svg>
+      <img src="/public/icons/logo.svg" alt="logo" />
+
       <div className={s.divNav}>
         <NavLink className={s.nav} to="/">
           Home

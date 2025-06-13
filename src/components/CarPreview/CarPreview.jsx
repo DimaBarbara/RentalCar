@@ -1,22 +1,23 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// import { addSelected, removeSelected } from "../../redux/cars/slice";
-// import { useDispatch } from "react-redux";
+import { addSelected, removeSelected } from "../../redux/cars/slice";
+import { useDispatch } from "react-redux";
 import s from "./CarPreview.module.css";
 
 const CarPreview = ({ list, selected }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isSelected = selected.includes(list.id);
   const handleClick = (id) => {
     navigate(`/catalog/${id}`);
   };
-  // const toggleSelect = (id) => {
-  //   if (selected.includes(id)) {
-  //     dispatch(removeSelected(id));
-  //   } else {
-  //     dispatch(addSelected(id));
-  //   }
-  // };
+  const toggleSelect = (id) => {
+    if (selected.includes(id)) {
+      dispatch(removeSelected(id));
+    } else {
+      dispatch(addSelected(id));
+    }
+  };
   return (
     <div className={s.divPreview}>
       <img
@@ -24,6 +25,14 @@ const CarPreview = ({ list, selected }) => {
         src={list.img}
         alt={`${list.brand} ${list.model}`}
       />
+      <img
+        className={s.heartIcon}
+        src={isSelected ? "/icons/heart2.svg" : "/icons/heart1.svg"}
+        alt={isSelected ? "Selected" : "Not selected"}
+        onClick={() => toggleSelect(list.id)}
+        style={{ cursor: "pointer" }}
+      />
+
       <div className={s.divTextPreview}>
         <h3 className={s.h3Preview}>
           {list.brand}
@@ -33,11 +42,7 @@ const CarPreview = ({ list, selected }) => {
         <p className={s.pPreview}>
           {list.address} | {list.rentalCompany} | {list.type} | {list.mileage}
         </p>
-        {/* <button className={s.buttonPreview} onClick={() => toggleSelect(list.id)}>
-        {selected.includes(list.id)
-          ? "Remove from selected"
-          : "Add to selected"}
-      </button> */}
+
         <button
           className={s.buttonPreview}
           onClick={() => handleClick(list.id)}

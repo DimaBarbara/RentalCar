@@ -1,0 +1,158 @@
+.divItem {
+  display: flex;
+  margin-top: 84px;
+}
+.LoaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.imgItem {
+  border-radius: 19px;
+  width: 640px;
+  height: 512px;
+  margin-bottom: 40px;
+}
+.formItem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  padding: 32px;
+}
+.h3Form {
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  text-align: start;
+}
+.pItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  text-align: start;
+}
+.inputItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  background-color: #f7f7f7;
+  border-color: transparent;
+  border-radius: 12px;
+  padding: 12px;
+  padding-left: 24px;
+}
+.textareaItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  background-color: #f7f7f7;
+  border-color: transparent;
+  border-radius: 12px;
+  padding: 12px;
+  padding-left: 24px;
+}
+.divInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.divText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.buttonItem {
+  margin: 0 auto;
+  width: 156px;
+  padding: 12px;
+  line-height: 1.25;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 12px;
+  background-color: #3470ff;
+  transition: background-color 0.3s ease;
+}
+.buttonItem:hover,
+.buttonItem:focus {
+  background-color: #0b44cd;
+}
+.divLeft {
+  margin-right: 72px;
+}
+.divCharacteristic {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 110px;
+}
+.ulItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.h3Item {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  text-align: start;
+  margin-bottom: 20px;
+}
+.liItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  text-align: start;
+}
+.divCar {
+  margin-bottom: 68px;
+}
+.h2Item {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #101828;
+  text-align: start;
+  margin-bottom: 8px;
+}
+.divP {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.pMileage {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+.pAdres {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+.pPrice {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #3470ff;
+  text-align: start;
+  margin-bottom: 32px;
+}
+.pDescr {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: start;
+  line-height: 1.25;
+  color: #101828;
+}

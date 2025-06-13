@@ -7,6 +7,7 @@ import { fetchCars } from "../../redux/cars/operation";
 const baseURL = "https://car-rental-api.goit.global";
 import s from "./FilterTab.module.css";
 import "./castomSelect.css";
+import CustomDropdownIndicator from "./CustomDropdownIndicator";
 const FilterTab = () => {
   const dispatch = useDispatch();
   const [brands, setBrands] = useState([]);
@@ -16,7 +17,9 @@ const FilterTab = () => {
     minMileage: "",
     maxMileage: "",
   });
-  console.log(localFilters);
+  const customComponents = {
+    DropdownIndicator: CustomDropdownIndicator,
+  };
 
   const price = ["30", "40", "50", "60", "70", "80"];
   useEffect(() => {
@@ -60,6 +63,7 @@ const FilterTab = () => {
             value: brand,
             label: brand,
           }))}
+          components={customComponents}
           className="customSelect"
           classNamePrefix="custom-select"
           placeholder="Choose a brand"
@@ -70,6 +74,7 @@ const FilterTab = () => {
             value: price,
             label: price,
           }))}
+          components={customComponents}
           className="customSelect"
           classNamePrefix="custom-select"
           placeholder="Choose a price"

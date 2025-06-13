@@ -24,3 +24,9 @@
 .buttonList:focus {
   border: 1px solid #0b44cd;
 }
+.LoaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

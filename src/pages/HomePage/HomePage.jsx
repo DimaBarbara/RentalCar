@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import s from "./HomePage.module.css";
+
 const HomePage = () => {
   const navigate = useNavigate();
   const handleClick = () => {

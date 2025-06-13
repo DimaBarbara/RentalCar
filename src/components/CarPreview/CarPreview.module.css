@@ -3,12 +3,24 @@
   flex-direction: column;
   justify-content: center;
   width: 276px;
+  position: relative;
 }
 .imgPreview {
   border-radius: 14px;
   width: 276px;
   height: 268px;
   margin-bottom: 16px;
+  display: block;
+}
+
+.heartIcon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 2;
 }
 .h3Preview {
   font-weight: 500;
