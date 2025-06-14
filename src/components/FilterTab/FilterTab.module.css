@@ -10,6 +10,9 @@
 }
 
 .buttonFilter {
+  width: 160px;
+  height: 44px;
+  margin-left: 16px;
   padding: 12px 51px;
   line-height: 1.25;
   font-size: 16px;
@@ -19,41 +22,66 @@
   background-color: #3470ff;
   transition: background-color 0.3s ease;
 }
+.inputDivFrom,
+.inputDivTo {
+  box-sizing: border-box;
+  display: flex;
+  gap: 3px;
+  width: 160px;
+  height: 44px;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #f7f7f7;
+  margin-top: 8px;
+}
+
+.inputDivFrom {
+  border-right: 1px solid #dadde1;
+  border-radius: 12px 0 0 12px;
+}
+
+.inputDivTo {
+  border-radius: 0 12px 12px 0;
+}
+
 .buttonFilter:hover,
 .buttonFilter:focus {
   background-color: #0b44cd;
 }
 .fieldsetFilter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
   border: none;
+  display: flex;
+
   padding: 0;
-  gap: 0;
+  margin: 0;
+  margin-bottom: 8px;
 }
-.inputFilter1 {
+
+.inputFilter {
+  border: none;
+  background-color: transparent;
+  width: 100%;
   font-weight: 500;
-  font-size: 16px;
   line-height: 1.25;
-  background-color: #f7f7f7;
-  border-color: transparent;
-  border-radius: 12px 0 0 12px;
-  padding: 12px;
-  padding-left: 24px;
-  border-right: 1px solid #8d929a;
-}
-.inputFilter2 {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.25;
-  background-color: #f7f7f7;
-  border-color: transparent;
-  border-radius: 0 12px 12px 0;
-  padding: 12px;
-  padding-left: 24px;
-}
-.inputFilter1::placeholder,
-.inputFilter2::placeholder {
   color: #101828;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 207px;
+  text-align: start;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8d929a;
+}
+.legend {
+  width: 207px;
+  text-align: start;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
 }

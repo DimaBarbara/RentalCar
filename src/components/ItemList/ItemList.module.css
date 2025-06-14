@@ -1,6 +1,6 @@
 .ulList {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 32px;
   list-style: none;
   padding: 0;

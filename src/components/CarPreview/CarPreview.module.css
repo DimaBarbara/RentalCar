@@ -12,7 +12,10 @@
   margin-bottom: 16px;
   display: block;
 }
-
+.divTextPreview {
+  flex-wrap: nowrap;
+  width: 100%;
+}
 .heartIcon {
   position: absolute;
   top: 16px;
@@ -23,14 +26,19 @@
   z-index: 2;
 }
 .h3Preview {
+  display: flex;
+  justify-content: space-between;
   font-weight: 500;
   margin-bottom: 8px;
+  font-size: 16px;
   text-align: start;
   display: flex;
-  align-items: center;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 .spanPreview {
   color: #3470ff;
+  margin-left: 4px;
 }
 .spanPreviewP {
   margin-left: auto;
@@ -44,6 +52,7 @@
   color: #8d929a;
   margin-bottom: 32px;
 }
+
 .buttonPreview {
   padding: 12px 97px;
   font-weight: 600;
@@ -51,6 +60,7 @@
   border-radius: 12px;
   background-color: #3470ff;
   transition: background-color 0.3s ease;
+  flex-shrink: 0;
 }
 .buttonPreview:hover,
 .buttonPreview:focus {

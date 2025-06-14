@@ -1,5 +1,5 @@
 .custom-select__control {
-  width: 204px !important;
+  width: 196px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: start !important;
@@ -7,7 +7,7 @@
   border: 1px solid transparent !important;
   border-radius: 12px !important;
   padding-left: 12px !important;
-  min-height: 48px !important;
+  height: 44px !important;
   font-weight: 500 !important;
   font-size: 16px !important;
   color: #101828 !important;

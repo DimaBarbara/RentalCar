@@ -6,21 +6,16 @@ const CustomDropdownIndicator = (props) => {
 
   return (
     <components.DropdownIndicator {...props}>
-      {isOpen ? (
-        <img
-          src="/public/icons/active.svg"
-          alt="arrow up"
-          width={20}
-          height={20}
-        />
-      ) : (
-        <img
-          src="/public/icons/default.svg"
-          alt="arrow down"
-          width={20}
-          height={20}
-        />
-      )}
+      <img
+        src="/icons/active.svg"
+        alt="arrow"
+        width={20}
+        height={20}
+        style={{
+          transition: "transform 0.3s ease",
+          transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+        }}
+      />
     </components.DropdownIndicator>
   );
 };

@@ -1,6 +1,7 @@
 .divItem {
   display: flex;
   margin-top: 84px;
+  margin-bottom: 104px;
 }
 .LoaderWrapper {
   display: flex;
@@ -22,6 +23,7 @@
   padding: 32px;
 }
 .h3Form {
+  font-family: "Manrope", sans-serif;
   font-size: 20px;
   line-height: 1.2;
   color: #101828;
@@ -84,6 +86,7 @@
 }
 .divLeft {
   margin-right: 72px;
+  width: 640px;
 }
 .divCharacteristic {
   display: flex;
@@ -106,6 +109,8 @@
   margin-bottom: 20px;
 }
 .liItem {
+  display: flex;
+  gap: 8px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -126,7 +131,7 @@
 }
 .divP {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
   margin-bottom: 16px;
 }
 .pMileage {
@@ -134,6 +139,7 @@
   font-size: 16px;
   line-height: 1.25;
   color: #101828;
+  margin-left: 16px;
 }
 .pAdres {
   font-weight: 500;
@@ -155,4 +161,5 @@
   text-align: start;
   line-height: 1.25;
   color: #101828;
+  max-width: 488px;
 }

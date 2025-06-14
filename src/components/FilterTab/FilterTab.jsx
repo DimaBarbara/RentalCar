@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../utils/axios.js";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Select from "react-select";
@@ -8,8 +8,10 @@ const baseURL = "https://car-rental-api.goit.global";
 import s from "./FilterTab.module.css";
 import "./castomSelect.css";
 import CustomDropdownIndicator from "./CustomDropdownIndicator";
+
 const FilterTab = () => {
   const dispatch = useDispatch();
+  const price = ["30", "40", "50", "60", "70", "80"];
   const [brands, setBrands] = useState([]);
   const [localFilters, setLocalFilters] = React.useState({
     brand: "",
@@ -17,16 +19,15 @@ const FilterTab = () => {
     minMileage: "",
     maxMileage: "",
   });
+
   const customComponents = {
     DropdownIndicator: CustomDropdownIndicator,
   };
 
-  const price = ["30", "40", "50", "60", "70", "80"];
   useEffect(() => {
     const fetchBrands = async () => {
       try {
         const response = await axios.get(`${baseURL}/brands`);
-        console.log(response.data);
         setBrands(response.data);
       } catch (error) {
         console.log("Error fetching brands:", error.message);
@@ -58,43 +59,56 @@ const FilterTab = () => {
   return (
     <section className={s.filter} id="filter">
       <form className={s.formFilter} onSubmit={handleSubmit}>
-        <Select
-          options={brands.map((brand) => ({
-            value: brand,
-            label: brand,
-          }))}
-          components={customComponents}
-          className="customSelect"
-          classNamePrefix="custom-select"
-          placeholder="Choose a brand"
-          onChange={onBrandChange}
-        />
-        <Select
-          options={price.map((price) => ({
-            value: price,
-            label: price,
-          }))}
-          components={customComponents}
-          className="customSelect"
-          classNamePrefix="custom-select"
-          placeholder="Choose a price"
-          onChange={onPriceChange}
-        />
+        <label className={s.label}>
+          Car brand
+          <Select
+            options={brands.map((brand) => ({
+              value: brand,
+              label: brand,
+            }))}
+            components={customComponents}
+            className="customSelect"
+            classNamePrefix="custom-select"
+            placeholder="Choose a brand"
+            onChange={onBrandChange}
+          />
+        </label>
+        <label className={s.label}>
+          Price/ 1 hour
+          <Select
+            options={price.map((price) => ({
+              value: price,
+              label: price,
+            }))}
+            components={customComponents}
+            className="customSelect"
+            classNamePrefix="custom-select"
+            placeholder="Choose a price"
+            onChange={onPriceChange}
+          />
+        </label>
         <fieldset className={s.fieldsetFilter}>
-          <input
-            className={s.inputFilter1}
-            placeholder="From"
-            onChange={onMinMileageChange}
-          />
-          <input
-            className={s.inputFilter2}
-            placeholder="To"
-            onChange={onMaxMileageChange}
-          />
+          <legend className={s.legend}>Car mileage / km</legend>
+          <div className={s.inputDivFrom}>
+            <p className={s.inputText}>From </p>
+            <input
+              className={s.inputFilter}
+              placeholder=""
+              onChange={onMinMileageChange}
+            />
+          </div>
+          <div className={s.inputDivTo}>
+            <p className={s.inputText}>To </p>
+            <input
+              className={s.inputFilter}
+              placeholder=""
+              onChange={onMaxMileageChange}
+            />
+          </div>
+          <button className={s.buttonFilter} type="submit">
+            Search
+          </button>
         </fieldset>
-        <button className={s.buttonFilter} type="submit">
-          Search
-        </button>
       </form>
     </section>
   );

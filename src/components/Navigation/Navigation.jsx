@@ -4,7 +4,7 @@ import s from "./Navigation.module.css";
 const Navigation = () => {
   return (
     <header className={s.header}>
-      <img src="/public/icons/logo.svg" alt="logo" />
+      <img src="/icons/logo.svg" alt="logo" />
 
       <div className={s.divNav}>
         <NavLink className={s.nav} to="/">

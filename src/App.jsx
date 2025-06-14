@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ItemPage from "./pages/ItemPage/ItemPage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import Layout from "./components/Layout";
-
+import "./App.css";
 const App = () => {
   return (
     <>

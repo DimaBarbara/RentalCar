@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import { Form, useParams } from "react-router-dom";
+import axios from "../../utils/axios.js";
 import s from "./Item.module.css";
 import { useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
-const baseURL = "https://car-rental-api.goit.global";
+import { addressFormat, mileageFormat } from "../../utils/formatData.js";
+import FormSend from "../FormSend/FormSend.jsx";
 
 const Item = () => {
   const { loading, error } = useSelector((state) => state.cars);
   const { id } = useParams();
   const [car, setCar] = useState(null);
+  console.log(car);
 
   useEffect(() => {
     const fetchCar = async () => {
       try {
-        const response = await axios.get(`${baseURL}/cars/${id}`);
+        const response = await axios.get(`/cars/${id}`);
         setCar(response.data);
       } catch (error) {
         console.error(error.message);
@@ -24,11 +26,18 @@ const Item = () => {
     fetchCar();
   }, [id]);
 
-  const minAgeString =
-    car?.rentalConditions?.find((item) => item.includes("Minimum age")) || "";
+  let formatMileage = "";
+  let formatAdress = [];
+  let minAge = "N/A";
 
-  const minAge = minAgeString.match(/Minimum age: (\d+)/)?.[1] ?? "N/A";
+  if (car) {
+    formatMileage = mileageFormat(car.mileage);
+    formatAdress = addressFormat(car.address);
 
+    const minAgeString =
+      car.rentalConditions?.find((item) => item.includes("Minimum age")) || "";
+    minAge = minAgeString.match(/Minimum age: (\d+)/)?.[1] ?? "N/A";
+  }
   return (
     <div className={s.divItem}>
       {loading ? (
@@ -45,34 +54,7 @@ const Item = () => {
               src={car.img}
               alt={`${car.brand} ${car.model}`}
             />
-
-            <form className={s.formItem}>
-              <div className={s.divText}>
-                <h3 className={s.h3Form}>Book your car now</h3>
-                <p className={s.pItem}>
-                  Stay connected! We are always ready to help you.
-                </p>
-              </div>
-              <div className={s.divInputs}>
-                <input
-                  className={s.inputItem}
-                  type="text"
-                  placeholder="Name*"
-                />
-                <input
-                  className={s.inputItem}
-                  type="email"
-                  placeholder="Email*"
-                />
-                <input
-                  className={s.inputItem}
-                  type="date"
-                  placeholder="Booking date"
-                />
-                <textarea className={s.textareaItem} placeholder="Comment" />
-              </div>
-              <button className={s.buttonItem}>Send</button>
-            </form>
+            <FormSend />
           </div>
 
           <div className={s.divRight}>
@@ -81,16 +63,16 @@ const Item = () => {
                 {car.brand} {car.model}, {car.year}
               </h2>
               <div className={s.divP}>
+                <img
+                  src="/icons/location.svg"
+                  alt="arrow up"
+                  width={20}
+                  height={20}
+                />
                 <p className={s.pAdres}>
-                  <img
-                    src="/public/icons/location.svg"
-                    alt="arrow up"
-                    width={20}
-                    height={20}
-                  />
-                  {car.address}
+                  {`${formatAdress[1]}, ${formatAdress[2]}`}
                 </p>
-                <p className={s.pMileage}>Mileage: {car.mileage} km</p>
+                <p className={s.pMileage}>Mileage: {formatMileage} km</p>
               </div>
               <p className={s.pPrice}>${car.rentalPrice}</p>
               <p className={s.pDescr}>{car.description}</p>
@@ -103,7 +85,7 @@ const Item = () => {
                   <li className={s.liItem}>
                     {" "}
                     <img
-                      src="/public/icons/check-circle.svg"
+                      src="/icons/check-circle.svg"
                       alt="arrow up"
                       width={20}
                       height={20}
@@ -113,7 +95,7 @@ const Item = () => {
                   <li className={s.liItem}>
                     {" "}
                     <img
-                      src="/public/icons/check-circle.svg"
+                      src="/icons/check-circle.svg"
                       alt="arrow up"
                       width={20}
                       height={20}
@@ -123,7 +105,7 @@ const Item = () => {
                   <li className={s.liItem}>
                     {" "}
                     <img
-                      src="/public/icons/check-circle.svg"
+                      src="/icons/check-circle.svg"
                       alt="arrow up"
                       width={20}
                       height={20}
@@ -138,7 +120,7 @@ const Item = () => {
                 <ul className={s.ulItem}>
                   <li className={s.liItem}>
                     <img
-                      src="/public/icons/calendar.svg"
+                      src="/icons/calendar.svg"
                       alt="arrow up"
                       width={20}
                       height={20}
@@ -148,7 +130,7 @@ const Item = () => {
                   <li className={s.liItem}>
                     {" "}
                     <img
-                      src="/public/icons/car.svg"
+                      src="/icons/car.svg"
                       alt="arrow up"
                       width={20}
                       height={20}
@@ -158,20 +140,22 @@ const Item = () => {
                   <li className={s.liItem}>
                     {" "}
                     <img
-                      src="/public/icons/fuel-pump.svg"
-                      alt="arrow up"
-                      width={20}
-                      height={20}
-                    />
-                    <img
-                      src="/public/icons/gear.svg"
+                      src="/icons/fuel-pump.svg"
                       alt="arrow up"
                       width={20}
                       height={20}
                     />
                     Fuel Consumption: {car.fuelConsumption}
                   </li>
-                  <li className={s.liItem}>Engine Size: {car.engineSize}</li>
+                  <li className={s.liItem}>
+                    <img
+                      src="/icons/gear.svg"
+                      alt="arrow up"
+                      width={20}
+                      height={20}
+                    />
+                    Engine Size: {car.engineSize}
+                  </li>
                 </ul>
               </div>
 
@@ -181,7 +165,7 @@ const Item = () => {
                   {car.accessories?.map((item, i) => (
                     <li className={s.liItem} key={i}>
                       <img
-                        src="/public/icons/check-circle.svg"
+                        src="/icons/check-circle.svg"
                         alt="arrow up"
                         width={20}
                         height={20}

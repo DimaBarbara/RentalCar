@@ -1,0 +1,92 @@
+.formItem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  padding: 32px;
+}
+.h3Form {
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  text-align: start;
+}
+.pItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  text-align: start;
+}
+.inputItem {
+  box-sizing: border-box;
+  width: 576px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  background-color: #f7f7f7;
+  border-color: transparent;
+  border-radius: 12px;
+  padding: 12px;
+  padding-left: 24px;
+}
+.inputWrapper {
+  position: relative;
+  width: 576px;
+}
+
+.textareaItem {
+  font-family: "Manrope", sans-serif;
+  box-sizing: border-box;
+  width: 576px !important;
+  height: 88px !important;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  background-color: #f7f7f7;
+  border-color: transparent;
+  border-radius: 12px;
+  padding: 12px;
+  padding-left: 24px;
+  resize: none;
+}
+.divInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.divText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.buttonItem {
+  margin: 0 auto;
+  width: 156px;
+  padding: 12px;
+  line-height: 1.25;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 12px;
+  background-color: #3470ff;
+  transition: background-color 0.3s ease;
+}
+.buttonItem:hover,
+.buttonItem:focus {
+  background-color: #0b44cd;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -18px;
+  left: 12px;
+  font-size: 12px;
+  color: red;
+  background: #fff;
+  pointer-events: none;
+  white-space: nowrap;
+}

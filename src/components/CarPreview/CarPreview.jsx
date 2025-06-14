@@ -3,10 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { addSelected, removeSelected } from "../../redux/cars/slice";
 import { useDispatch } from "react-redux";
 import s from "./CarPreview.module.css";
+import { addressFormat, mileageFormat } from "../../utils/formatData";
 
 const CarPreview = ({ list, selected }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const formatMileage = mileageFormat(list.mileage);
+  const formatAdress = addressFormat(list.address);
   const isSelected = selected.includes(list.id);
   const handleClick = (id) => {
     navigate(`/catalog/${id}`);
@@ -35,12 +39,18 @@ const CarPreview = ({ list, selected }) => {
 
       <div className={s.divTextPreview}>
         <h3 className={s.h3Preview}>
-          {list.brand}
-          <span className={s.spanPreview}> {list.model}</span>, {list.year}
-          <span className={s.spanPreviewP}> ${list.rentalPrice}</span>
+          <div className={s.divT}>
+            {list.brand}
+            <span className={s.spanPreview}> {list.model}</span>, {list.year}
+          </div>
+          <div>
+            <span className={s.spanPreviewP}> ${list.rentalPrice}</span>
+          </div>
         </h3>
         <p className={s.pPreview}>
-          {list.address} | {list.rentalCompany} | {list.type} | {list.mileage}
+          {`${formatAdress[1]} | ${formatAdress[2]}`} | {list.rentalCompany} |
+          <br />
+          {list.type} | {formatMileage}
         </p>
 
         <button

@@ -14,8 +14,6 @@ const initialState = {
   },
   loading: false,
   error: null,
-  totalCars: 0,
-  totalPages: 0,
 };
 
 const carsSlice = createSlice({
@@ -45,16 +43,19 @@ const carsSlice = createSlice({
       .addCase(fetchCars.pending, (state) => {
         state.loading = true;
         state.error = null;
-        state.list = [];
-        state.totalCars = 0;
-        state.totalPages = 0;
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.loading = false;
-        state.list = action.payload.cars;
-        state.totalCars = action.payload.totalCars;
-        state.totalPages = action.payload.totalPages;
-        state.filters.page = action.payload.page;
+        const page = Number(action.payload.page);
+        if (page === 1) {
+          state.list = action.payload.cars;
+        } else {
+          const combinedCars = [...state.list, ...action.payload.cars];
+          const uniqueCarsMap = new Map();
+          combinedCars.forEach((car) => uniqueCarsMap.set(car.id, car));
+          state.list = Array.from(uniqueCarsMap.values());
+        }
+        state.filters.page = page;
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.loading = false;

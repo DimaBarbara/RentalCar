@@ -15,10 +15,11 @@ const ItemList = () => {
   useEffect(() => {
     dispatch(fetchCars(filters));
   }, [filters, dispatch]);
-  const handlePageChange = (newPage) => {
-    dispatch(setFilters({ ...filters, page: newPage }));
+
+  const handleLoadMore = () => {
+    dispatch(setFilters({ ...filters, page: Number(filters.page) + 1 }));
   };
-  const isLastPage = list.length < filters.limit || list.length === 0;
+  const isLastPage = list?.length < filters?.limit || list?.length === 0;
 
   return (
     <section className={s.ItemList} id="ItemList">
@@ -38,16 +39,13 @@ const ItemList = () => {
             ))}
           </ul>
           {!isLastPage && (
-            <button
-              className={s.buttonList}
-              onClick={() => handlePageChange(+filters.page + 1)}
-            >
+            <button className={s.buttonList} onClick={handleLoadMore}>
               Load more
             </button>
           )}
         </>
       ) : (
-        <h1>Нема машинок</h1>
+        <h2>nnjn</h2>
       )}
     </section>
   );
