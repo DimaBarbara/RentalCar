@@ -14,3 +14,7 @@
 .nav:focus {
   color: #0b44cd;
 }
+
+.active {
+  color: #0b44cd;
+}

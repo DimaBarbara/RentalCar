@@ -1,0 +1,37 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #f7f7f7;
+  padding: 20px;
+}
+
+.title {
+  font-family: "Manrope", sans-serif;
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #ff4d4f;
+}
+
+.text {
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.link {
+  font-family: "Manrope", sans-serif;
+  color: #3470ff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.link:hover {
+  border-color: #0b44cd;
+}

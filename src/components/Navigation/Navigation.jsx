@@ -7,10 +7,20 @@ const Navigation = () => {
       <img src="/icons/logo.svg" alt="logo" />
 
       <div className={s.divNav}>
-        <NavLink className={s.nav} to="/">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${s.nav} ${s.active}` : s.nav
+          }
+          to="/"
+        >
           Home
         </NavLink>
-        <NavLink className={s.nav} to="/catalog">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${s.nav} ${s.active}` : s.nav
+          }
+          to="/catalog"
+        >
           Catalog
         </NavLink>
       </div>
