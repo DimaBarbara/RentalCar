@@ -8,10 +8,10 @@ const baseURL = "https://car-rental-api.goit.global";
 import s from "./FilterTab.module.css";
 import "./castomSelect.css";
 import CustomDropdownIndicator from "./CustomDropdownIndicator";
-
+import { price } from "../../utils/constants.js";
 const FilterTab = () => {
   const dispatch = useDispatch();
-  const price = ["30", "40", "50", "60", "70", "80"];
+
   const [brands, setBrands] = useState([]);
   const [localFilters, setLocalFilters] = React.useState({
     brand: "",

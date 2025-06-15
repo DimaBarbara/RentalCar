@@ -5,15 +5,7 @@ import CarPreview from "../CarPreview/CarPreview";
 import { setFilters } from "../../redux/cars/slice";
 import s from "./ItemList.module.css";
 import Loader from "../Loader/Loader";
-
-const DEFAULT_FILTERS = {
-  brand: "",
-  rentalPrice: "",
-  minMileage: "",
-  maxMileage: "",
-  limit: 12,
-  page: 1,
-};
+import { DEFAULT_FILTERS } from "../../utils/constants.js";
 
 const ItemList = () => {
   const dispatch = useDispatch();

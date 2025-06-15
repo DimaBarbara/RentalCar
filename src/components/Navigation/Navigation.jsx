@@ -20,6 +20,7 @@ const Navigation = () => {
             isActive ? `${s.nav} ${s.active}` : s.nav
           }
           to="/catalog"
+          state={{ reset: true }}
         >
           Catalog
         </NavLink>
