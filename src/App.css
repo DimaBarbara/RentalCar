@@ -3,3 +3,9 @@
   margin: 0 auto;
   text-align: center;
 }
+.LoaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

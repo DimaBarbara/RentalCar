@@ -11,7 +11,6 @@ const Item = () => {
   const { loading, error } = useSelector((state) => state.cars);
   const { id } = useParams();
   const [car, setCar] = useState(null);
-  console.log(car);
 
   useEffect(() => {
     const fetchCar = async () => {
@@ -29,11 +28,12 @@ const Item = () => {
   let formatMileage = "";
   let formatAdress = [];
   let minAge = "N/A";
+  let arr = [];
 
   if (car) {
     formatMileage = mileageFormat(car.mileage);
     formatAdress = addressFormat(car.address);
-
+    arr = [...car.accessories, ...car.functionalities];
     const minAgeString =
       car.rentalConditions?.find((item) => item.includes("Minimum age")) || "";
     minAge = minAgeString.match(/Minimum age: (\d+)/)?.[1] ?? "N/A";
@@ -60,7 +60,10 @@ const Item = () => {
           <div className={s.divRight}>
             <div className={s.divCar}>
               <h2 className={s.h2Item}>
-                {car.brand} {car.model}, {car.year}
+                {car.brand} {car.model}, {car.year}{" "}
+                <span className={s.spanID}>{`id: ${
+                  car.img.split("/").pop().split("-")[0]
+                }`}</span>
               </h2>
               <div className={s.divP}>
                 <img
@@ -162,7 +165,7 @@ const Item = () => {
               <div className={s.divAccessories}>
                 <h3 className={s.h3Item}>Accessories and functionalities:</h3>
                 <ul className={s.ulItem}>
-                  {car.accessories?.map((item, i) => (
+                  {arr?.map((item, i) => (
                     <li className={s.liItem} key={i}>
                       <img
                         src="/icons/check-circle.svg"

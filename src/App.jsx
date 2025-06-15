@@ -1,23 +1,26 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import HomePage from "./pages/HomePage/HomePage";
-import ItemPage from "./pages/ItemPage/ItemPage";
-import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import Layout from "./components/Layout";
 import "./App.css";
+import Loader from "./components/Loader/Loader";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
+const ItemPage = lazy(() => import("./pages/ItemPage/ItemPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+
 const App = () => {
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />}></Route>
-          <Route path="/catalog" element={<CatalogPage />}></Route>
-          <Route path="/catalog/:id" element={<ItemPage />}></Route>
-          <Route path="*" element={<NotFoundPage />}></Route>
+          <Route index element={<HomePage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:id" element={<ItemPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </>
+    </Suspense>
   );
 };
 

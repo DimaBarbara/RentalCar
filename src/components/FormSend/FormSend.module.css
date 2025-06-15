@@ -22,18 +22,23 @@
 .inputItem {
   box-sizing: border-box;
   width: 576px;
+  border: 1px solid transparent;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
   background-color: #f7f7f7;
-  border-color: transparent;
   border-radius: 12px;
   padding: 12px;
   padding-left: 24px;
 }
+
 .inputWrapper {
   position: relative;
   width: 576px;
+}
+.inputItem:hover,
+.inputItem:focus {
+  border: 1px solid #8d929a;
 }
 
 .textareaItem {
@@ -45,11 +50,15 @@
   font-size: 16px;
   line-height: 1.25;
   background-color: #f7f7f7;
-  border-color: transparent;
+  border: 1px solid transparent;
   border-radius: 12px;
   padding: 12px;
   padding-left: 24px;
   resize: none;
+}
+.textareaItem:hover,
+.textareaItem:focus {
+  border: 1px solid #8d929a;
 }
 .divInputs {
   display: flex;

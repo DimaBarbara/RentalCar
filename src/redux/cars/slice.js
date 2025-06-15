@@ -11,6 +11,8 @@ const initialState = {
     maxMileage: "",
     limit: 12,
     page: 1,
+    totalCars: 0,
+    totalPages: 0,
   },
   loading: false,
   error: null,
@@ -56,6 +58,10 @@ const carsSlice = createSlice({
           state.list = Array.from(uniqueCarsMap.values());
         }
         state.filters.page = page;
+        state.filters.totalCars = action.payload.totalCars;
+        state.filters.totalPages = Math.ceil(
+          action.payload.totalCars / state.filters.limit
+        );
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.loading = false;

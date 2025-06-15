@@ -9,10 +9,8 @@ export const fetchCars = createAsyncThunk(
         limit: filters.limit || 12,
         page: filters.page || 1,
       };
-      console.log(params);
 
       const response = await axios.get("/cars", { params });
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

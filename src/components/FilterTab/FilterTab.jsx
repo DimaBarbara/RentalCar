@@ -85,6 +85,10 @@ const FilterTab = () => {
             classNamePrefix="custom-select"
             placeholder="Choose a price"
             onChange={onPriceChange}
+            getOptionLabel={(e) => `$${e.label}`}
+            formatOptionLabel={(data, { context }) =>
+              context === "menu" ? `${data.label}` : `To $${data.label}`
+            }
           />
         </label>
         <fieldset className={s.fieldsetFilter}>

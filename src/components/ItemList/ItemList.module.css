@@ -7,7 +7,22 @@
   margin: 0;
   margin-bottom: 80px;
 }
-
+.pList {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+.NotFound {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 200px;
+}
 .buttonList {
   padding: 12px 38px;
   font-weight: 600;

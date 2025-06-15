@@ -10,6 +10,7 @@
 }
 
 .buttonFilter {
+  margin-top: 7px;
   width: 160px;
   height: 44px;
   margin-left: 16px;
@@ -25,6 +26,7 @@
 .inputDivFrom,
 .inputDivTo {
   box-sizing: border-box;
+  border: 1px solid transparent;
   display: flex;
   gap: 3px;
   width: 160px;
@@ -34,7 +36,12 @@
   background-color: #f7f7f7;
   margin-top: 8px;
 }
-
+.inputDivFrom:hover,
+.inputDivFrom:focus,
+.inputDivTo:hover,
+.inputDivTo:focus {
+  border: 1px solid #8d929a;
+}
 .inputDivFrom {
   border-right: 1px solid #dadde1;
   border-radius: 12px 0 0 12px;
@@ -51,14 +58,15 @@
 .fieldsetFilter {
   border: none;
   display: flex;
-
   padding: 0;
   margin: 0;
   margin-bottom: 8px;
 }
 
 .inputFilter {
+  margin-top: 3px;
   border: none;
+  font-size: 16px;
   background-color: transparent;
   width: 100%;
   font-weight: 500;
@@ -78,6 +86,7 @@
   color: #8d929a;
 }
 .legend {
+  padding-top: 6px;
   width: 207px;
   text-align: start;
   font-weight: 400;

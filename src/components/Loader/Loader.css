@@ -4,6 +4,9 @@
   aspect-ratio: 1;
   border-radius: 50%;
   animation: l37-1 0.75s infinite linear alternate, l37-2 1.5s infinite linear;
+  position: fixed;
+  top: 50%;
+  left: 50%;
 }
 @keyframes l37-1 {
   0%,
